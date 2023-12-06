@@ -1,0 +1,15 @@
+h1 Edit User
+.container.d-flex.justify-content-center.align-items-center style="min-height: 100vh;"
+  .card style="width: 20rem; height: 20rem;"
+    .card-body
+      = form_with(model: @user, local: true) do |form|
+        .form-group
+          = form.label :name
+          = form.text_field :name, class: 'form-control'
+        .form-group
+          = form.label :email
+          = form.email_field :email, class: 'form-control'
+        .actions
+          = form.submit 'Update User', class: 'btn btn-primary'
+        .actions
+          = link_to 'Back to Users', users_path, class: 'btn btn-secondary'

@@ -1,0 +1,21 @@
+h1 Users
+= flash[:notice]
+table.table.table-striped
+  thead
+    tr
+      th ID
+      th Name
+      th Email
+      th Action
+  tbody
+    - @users.each do |user|
+      tr
+        td= user.id
+        td= user.name
+        td= user.email
+        td
+          = link_to 'Edit', edit_user_path(user), class: 'btn btn-primary'
+          = link_to 'Show', user, class: 'btn btn-info'
+          = button_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+          
+= button_to 'Logout', new_session_path, method: :delete, class: 'btn btn-danger'
